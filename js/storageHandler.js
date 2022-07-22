@@ -80,7 +80,7 @@ class Products extends miStorage{
     misproductos=[];
     constructor(){
         super(Products.name)
-        fetch("/mega-streaming-4k/js/productos.json")
+        fetch("/js/productos.json")
         .then(jsonProductos=>jsonProductos.json())
         .then(productos=>{
             Object.entries(productos).forEach(producto=>{
@@ -129,18 +129,10 @@ class Products extends miStorage{
                 `
             })
             this.productos=productos;
-            this.create(this.misproductos);
+            console.log(this.create(this.misproductos));
         })
         
     }
-    /*async crearProductos(){
-    
-    let productos = await fetch("/mega-streaming-4k/js/productos.json")
-        productos = await 
-        // console.log(productos);
-        
-        
-    }*/
 }
 
     let productos = new Products();

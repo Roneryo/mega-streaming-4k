@@ -1,5 +1,5 @@
 {
-    "Netflix": {
+    "netflix": {
         "tipo": [
             1,
             2,
@@ -8,7 +8,7 @@
         ],
         "precio": 11000
     },
-    "Plex": {
+    "plex": {
         "tipo": [
             1,
             2,
@@ -28,7 +28,7 @@
         "precio": 10000
     },
 
-    "Disney": {
+    "disney": {
         "tipo": [
             1,
             2,
@@ -37,7 +37,7 @@
         ],
         "precio": 9000
     },
-    "Crunchyroll": {
+    "crunchyrol": {
         "tipo": [
             1,
             2,
@@ -45,6 +45,16 @@
             4
         ],
         "precio": 7000
+    },
+    "primevide": {
+        "tipo": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "precio": 7500
     }
 
+    
 }

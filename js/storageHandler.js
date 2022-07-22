@@ -67,13 +67,13 @@ class User extends miStorage{
             id:this.id,
         }
         if(this.create(registerData)){
-            console.log("Se ha registrado el usuario con exito");
+            // console.log("Se ha registrado el usuario con exito");
         }else{
-            console.log(`la cedula ${this.id} ya se encuentra registrada`);
+            // console.log(`la cedula ${this.id} ya se encuentra registrada`);
         }
     }
     login(){
-        console.log(this.findOne(this.id))
+        // console.log(this.findOne(this.id))
     }
 }
 class Products extends miStorage{
@@ -85,9 +85,9 @@ class Products extends miStorage{
         .then(productos=>{
             Object.entries(productos).forEach(producto=>{
                 for(let i=0;i<3;i++){
-                    console.log(producto)
+                    // console.log(producto)
                     let tipo = Math.floor(Math.random() * 3)+1;
-                    console.log(tipo)
+                    // console.log(tipo)
                     let precio=0;
                     switch(tipo){
                         case 1:
@@ -103,13 +103,30 @@ class Products extends miStorage{
                             precio=producto[1].precio*tipo;
                             break;                        
                         }
-                        console.log(producto[1].tipo);
+                        // console.log(producto[1].tipo);
                     this.misproductos.push({
                         nombre:producto[0],
-                        tipo:`${producto[1].tipo[tipo-1]} p`,
+                        tipo:`${producto[1].tipo[tipo-1]} P`,
+                        image:`img/${producto[0]}.png`,
                         precio,
                     })
                 }
+                
+            })
+            let cartas=document.querySelector('#my-cards');
+            this.misproductos.forEach(element=>{
+                console.log(element);
+                cartas.innerHTML+=`
+                <div class="my-3 col-lg-2 col-sm-4 col-xs-6">
+                  <div class="card text-center" style="width: 15rem;">
+                    <img class="card-img-top" src="${element.image}" alt="Card image cap">
+                    <div class="card-body">
+                      <h6 class="card-title">${element.nombre.toUpperCase()} ${element.tipo}</h6>
+                      <a href="#" class="btn btn-primary">${element.precio}</a>
+                    </div>
+                  </div>
+                </div>
+                `
             })
             this.productos=productos;
             this.create(this.misproductos);
@@ -120,9 +137,12 @@ class Products extends miStorage{
     
     let productos = await fetch("/mega-streaming-4k/js/productos.json")
         productos = await 
-        console.log(productos);
+        // console.log(productos);
         
         
     }*/
 }
+
+    let productos = new Products();
+
 /*, contacto, cuentas compradas, facutración, reportar cosgincación, reportar fallo de cuenta*/

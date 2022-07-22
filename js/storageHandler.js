@@ -76,4 +76,53 @@ class User extends miStorage{
         console.log(this.findOne(this.id))
     }
 }
+class Products extends miStorage{
+    misproductos=[];
+    constructor(){
+        super(Products.name)
+        fetch("/mega-streaming-4k/js/productos.json")
+        .then(jsonProductos=>jsonProductos.json())
+        .then(productos=>{
+            Object.entries(productos).forEach(producto=>{
+                for(let i=0;i<3;i++){
+                    console.log(producto)
+                    let tipo = Math.floor(Math.random() * 3)+1;
+                    console.log(tipo)
+                    let precio=0;
+                    switch(tipo){
+                        case 1:
+                            precio=producto[1].precio;
+                            break;
+                        case 2:
+                            precio=producto[1].precio*tipo;
+                            break;
+                        case 3:
+                            precio=producto[1].precio*tipo;
+                            break;
+                        case 4:
+                            precio=producto[1].precio*tipo;
+                            break;                        
+                        }
+                        console.log(producto[1].tipo);
+                    this.misproductos.push({
+                        nombre:producto[0],
+                        tipo:`${producto[1].tipo[tipo-1]} p`,
+                        precio,
+                    })
+                }
+            })
+            this.productos=productos;
+            this.create(this.misproductos);
+        })
+        
+    }
+    /*async crearProductos(){
+    
+    let productos = await fetch("/mega-streaming-4k/js/productos.json")
+        productos = await 
+        console.log(productos);
+        
+        
+    }*/
+}
 /*, contacto, cuentas compradas, facutración, reportar cosgincación, reportar fallo de cuenta*/

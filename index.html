@@ -35,9 +35,17 @@
           <li class="nav-item">
             <a class="nav-link" href="./html/login.html">Salir</a>
           </li>
-
-          </a>
+          <li class="nav-item d-inline-block "  >
+            <a class="nav-link" 
+            data-bs-toggle="tooltip" data-bs-placement="bottom"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="¡Tienes 0 Productos actualmente!"
+              >🛒</a>
+          </li>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <span class="navbar-text">
+              Navbar text with an inline element
+            </span>
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li>
@@ -297,6 +305,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
     integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
     crossorigin="anonymous"></script>
+    <script src="./js/storageHandler.js"></script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    
+    <!-- faker-js -->
+    <!-- <script type="text/javascript" src="https://unpkg.com/@faker-js/faker"></script> -->
 </body>
 
 </html>

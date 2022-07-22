@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <style>
+
+        body{
+           background-image: src=""; 
+           background: linear-gradient(to rigth, #ffa751 , #ffe259);
+        }
+
+        
+    </style>
+    
+</head>
+<body>
+    
+    <br><br>
+    
+    <section class="d-flex justify-content-center align-items-center">
+        <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4"> 
+            <div class="mb-4 d-flex justify-content-start align-items-center">
+              
+                
+            </div>
+            <center><h1> Registrarme</h1></center>
+            <br>
+            <div class="mb-1">
+                <form action="../index.html">
+                    <div class="mb-4 d-flex justify-content-between"> 
+                        <div>
+                            <label for="nombre"> <i class="bi bi-person-fill"></i> Nombre</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder= "ej: zhavier" required>
+                            <div class="nombre text-danger "></div>
+                        </div>
+                        <div >
+                            <label for="apellido"> <i class="bi bi-person-bounding-box"></i> Apellido</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido" placeholder= "ej: vega" required>
+                            <div class="apellido text-danger"></div>
+                        </div> 
+                    </div>
+
+
+                    <div class="mb-4 d-flex justify-content-between"> 
+                        <div class="col">
+                            <label for="Usuario" class="form-label">Usuario</label>
+                            <input type="user" class="form-control" name="user" id="user" placeholder= "ej: zhavier_vega" required>
+                        </div>
+                    </div>    
+
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                            <label for="fechadenacimiento" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" name="fechadenacimiento" class="form-control" id="fechadenacimiento" placeholder="dd/mm/aaaa">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Correo</label>
+                        <input type="email" class="form-control" name="correo" id="correo" placeholder= "ej: zhavierjvm@gmail.com" required>
+                        <div class="correo text-danger"></div>
+                        
+                    </div> 
+
+                    <div class="col">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="********" required>
+
+                    </div>
+
+                    <div class="col">
+                        <label for="password" class="form-label">Repetir Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="********" required>
+
+                    </div>
+              
+              
+                    <div class="mb-4">
+                        <br>
+                        <label for="sexo"> Sexo: </label>
+                        <input type="radio" class="form-check-input"  name="sexo"  value="masculino" > Masculino
+                        <input type="radio" class="form-check-input" name="sexo"  value="femenino" > Femenino
+                        <div class="sexo text-danger"></div>
+                    </div>  
+                    <div class= "mb-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck">
+                          <label class="form-check-label" for="gridCheck">
+                            Acepto todos los terminos y condiciones.
+                          </label>
+                        </div>
+                        <br>
+                    
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary">Registrame</button>
+                    </div>
+                              
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

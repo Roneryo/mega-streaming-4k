@@ -82,7 +82,9 @@ class User extends miStorage{
         // console.log(this.findOne(this.id))
     }
     isLogged(){
-        let userLoged = this.getAll().filter(user=>user.logged);
+        let userLoged = this.getAll();
+        if(userLoged)
+        userLoged= userLoged.filter(user=>user.logged);
         return userLoged>0;
 
     }

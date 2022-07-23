@@ -202,6 +202,7 @@ if(location.pathname==='/' || window.location.pathname.split('/').find(el=>el===
     console.log(usuarioActual);
     
     if(persona.isLogged()){
+
         saludo = saludo.innerHTML=`Bienvenido ${usuarioActual.name.toUpperCase()} ${usuarioActual.lastName.toUpperCase()}`
         new Products();
         let logOut = document.querySelector("#logOut");

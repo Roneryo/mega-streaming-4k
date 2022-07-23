@@ -177,9 +177,9 @@ if(window.location.pathname.split('/').find(el=>el==='index.html' )
 window.location.pathname.split('/').find(el=>el==='mega-streaming-4k')*/){
     let persona=new User();
     let saludo =document.querySelector("#user");
-    let usuarioActual = persona.getAll().find(usuario=>usuario.logged)[0];
-    console.log(usuarioActual);
-    saludo = saludo.innerHTML=`Bienvenido ${usuarioActual.name.toUpperCase()} ${usuarioActual.lastName.toUpperCase()} `
+    let usuarioActual = persona.getAll().find(usuario=>usuario.logged);
+    console.log(usuarioActual[0]);
+    saludo = saludo.innerHTML=`Bienvenido ${usuarioActual[0].name.toUpperCase()} ${usuarioActual[0].lastName.toUpperCase()} `
     if(persona.isLogged()){
         new Products();
         let logOut = document.querySelector("#logOut");

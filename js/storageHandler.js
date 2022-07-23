@@ -40,6 +40,9 @@ class miStorage{
         let newList = this.items.filter(element=>element.id!==id);
         this.database.setItem(this.key,newList);
     }
+    exists(){ 
+        return this.database.getItem(this.key)!==null;
+    }
 
 }
 //sesión, registro
@@ -111,76 +114,95 @@ class Products extends miStorage{
     misproductos=[];
     constructor(){
         super(Products.name)
-        fetch("/js/productos.json")
-        .then(jsonProductos=>jsonProductos.json())
-        .then(productos=>{
-            Object.entries(productos).forEach(producto=>{
-                for(let i=0;i<3;i++){
-                    // console.log(producto)
-                    let tipo = Math.floor(Math.random() * 3)+1;
-                    // console.log(tipo)
-                    let precio=0;
-                    switch(tipo){
-                        case 1:
-                            precio=producto[1].precio;
-                            break;
-                        case 2:
-                            precio=producto[1].precio*tipo;
-                            break;
-                        case 3:
-                            precio=producto[1].precio*tipo;
-                            break;
-                        case 4:
-                            precio=producto[1].precio*tipo;
-                            break;                        
-                        }
-                        // console.log(producto[1].tipo);
-                    this.misproductos.push({
-                        nombre:producto[0],
-                        tipo:`${producto[1].tipo[tipo-1]} P`,
-                        image:`img/${producto[0]}.png`,
-                        precio,
-                    })
+        if(!this.exists()){
+            fetch("/js/productos.json")
+            .then(jsonProductos=>jsonProductos.json())
+            .then(productos=>{
+                Object.entries(productos).forEach(producto=>{
+                    console.log(producto)
+                    for(let i=0;i<3;i++){
+                        let tipo = Math.floor(Math.random() * 3)+1;
+                        // console.log(tipo)
+                        let precio=0;
+                        switch(tipo){
+                            case 1:
+                                precio=producto[1].precio;
+                                break;
+                            case 2:
+                                precio=producto[1].precio*tipo;
+                                break;
+                            case 3:
+                                precio=producto[1].precio*tipo;
+                                break;
+                            case 4:
+                                precio=producto[1].precio*tipo;
+                                break;                        
+                            }
+                            // console.log(producto[1].tipo);
+                        this.misproductos.push({
+                            nombre:producto[0],
+                            tipo:`${producto[1].tipo[tipo-1]}P`,
+                            image:`img/${producto[0]}.png`,
+                            precio,
+                        })
+                    }
+                    
+                })
+                if(this.create(this.misproductos)){
+                    this.misproductos=productos;
+                    console.log(true)
                 }
-                
+                this.mostrarProductos();
             })
-            let cartas=document.querySelector('#my-cards');
-            this.misproductos.forEach(element=>{
-                console.log(element);
-                cartas.innerHTML+=`
-                <div class="my-3 col-lg-2 col-sm-4 col-xs-6">
-                  <div class="card text-center" style="width: 15rem;">
-                    <img class="card-img-top" src="${element.image}" alt="Card image cap">
-                    <div class="card-body">
-                      <h6 class="card-title">${element.nombre.toUpperCase()} ${element.tipo}</h6>
-                      <a href="#" class="btn btn-primary" onclick=''>${element.precio}</a>
-                    </div>
-                  </div>
+    
+        }else{
+            this.mostrarProductos();
+        }
+    }
+    mostrarProductos(){
+
+        let cartas=document.querySelector('#my-cards');
+        this.misproductos=this.getAll();
+        console.log("xd",this.misproductos);
+        this.misproductos[0].forEach(element=>{
+            cartas.innerHTML+=`
+            <div class="my-3 col-lg-2 col-sm-4 col-xs-6">
+              <div class="card text-center" style="width: 15rem;">
+                <img class="card-img-top" src="${element.image}" alt="Card image cap">
+                <div class="card-body">
+                  <h6 class="card-title">${element.nombre.toUpperCase()} ${element.tipo}</h6>
+                  <a id="${element.tipo}" class="btn btn-primary ${element.nombre}" onclick=''>${element.precio}</a>
                 </div>
-                `
-            })
-            this.productos=productos;
-            console.log(this.create(this.misproductos));
+              </div>
+            </div>
+            `
         })
-    }
-    example(){
-        console.log("example")
-    }
+        let netflix = document.querySelectorAll(".netflix")
+        netflix.forEach(element=>{
+            console.log(element.id);
+        });
+        let plex = document.querySelectorAll(".plex");
+        let HBO = document.querySelectorAll(".Hbo.Max");
+
+        console.log(netflix,plex,HBO);
+}
 }
 class Cart extends miStorage{
     constructor(){
         super(Cart.name)
     }
 }
-if(window.location.pathname.split('/').find(el=>el==='index.html' )
-/*||
-window.location.pathname.split('/').find(el=>el==='mega-streaming-4k')*/){
+if(location.pathname==='/' || window.location.pathname.split('/').find(el=>el==='index.html') ){
     let persona=new User();
     let saludo =document.querySelector("#user");
-    let usuarioActual = persona.getAll().find(usuario=>usuario.logged);
+
+    let usuarioActual = persona.getAll();
+    if(usuarioActual.length>=0)
+    usuarioActual=usuarioActual.find(usuario=>usuario.logged);
     console.log(usuarioActual);
-    saludo = saludo.innerHTML=`Bienvenido ${usuarioActual.name.toUpperCase()} ${usuarioActual.lastName.toUpperCase()} `
+    
     if(persona.isLogged()){
+        saludo = saludo.innerHTML=`Bienvenido ${usuarioActual.name.toUpperCase()} ${usuarioActual.lastName.toUpperCase()}`
         new Products();
         let logOut = document.querySelector("#logOut");
         logOut.addEventListener("click",(e)=>{
@@ -193,6 +215,7 @@ window.location.pathname.split('/').find(el=>el==='mega-streaming-4k')*/){
         window.location.href="/html/login.html"
     }
 }
+
 if(window.location.pathname.split('/').find(el=>el==='login.html')){
     let persona=new User();
     if(persona.isLogged()){
@@ -244,30 +267,8 @@ if(window.location.pathname.split('/').find(el=>el==='registro.html')){
         let persona = new User(email,name,lastName,password,birthdate,gender,id)
         persona.register()
         persona.login()
-        window.location.href="/index.html"
-        
-        
+        window.location.href="/index.html"  
     })
-    // let persona = new User(
-    //     email,
-    //     name,
-    //     lastName,
-    //     password,
-    //     birthdate,
-    //     gender,
-    //     id
-    //     )
-    
 }
-/*, contacto, cuentas compradas, facutración, reportar cosgincación, reportar fallo de cuenta*/
-
-/*
-let datos ={
-    name:"Roner",
-    lasName:"Ortega",
-    password:1234,
-    id:1083051959,
-}
-let persona = new User(datos.name,datos.lastName,datos.password,datos.id)
-persona.register();
-*/
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

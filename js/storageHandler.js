@@ -30,6 +30,10 @@ class miStorage{
         let oneItem = this.items.find(element=>element.id===id);
         return oneItem;
     }
+    getAll(){
+        this.items=JSON.parse(this.database.getItem(this.key));
+        return this.items;
+    }
     delete(id){
         this.items=JSON.parse(this.database.getItem(this.key));
         let newList = this.items.filter(element=>element.id!==id);
@@ -65,6 +69,8 @@ class User extends miStorage{
             second_name:this.second_name,
             second_lastName:this.second_lastName,
             id:this.id,
+            logged:false
+
         }
         if(this.create(registerData)){
             // console.log("Se ha registrado el usuario con exito");
@@ -74,6 +80,11 @@ class User extends miStorage{
     }
     login(){
         // console.log(this.findOne(this.id))
+    }
+    isLogged(){
+        let userLoged = this.getAll().filter(user=>user.logged);
+        return userLoged>0;
+
     }
 }
 class Products extends miStorage{
@@ -122,7 +133,7 @@ class Products extends miStorage{
                     <img class="card-img-top" src="${element.image}" alt="Card image cap">
                     <div class="card-body">
                       <h6 class="card-title">${element.nombre.toUpperCase()} ${element.tipo}</h6>
-                      <a href="#" class="btn btn-primary">${element.precio}</a>
+                      <a href="#" class="btn btn-primary" onclick=''>${element.precio}</a>
                     </div>
                   </div>
                 </div>
@@ -131,10 +142,22 @@ class Products extends miStorage{
             this.productos=productos;
             console.log(this.create(this.misproductos));
         })
-        
+    }
+    example(){
+        console.log("example")
     }
 }
-
+class Cart extends miStorage{
+    constructor(){
+        super(Cart.name)
+    }
+}
+let persona=new User();
+if(persona.isLogged()){
     let productos = new Products();
+}else{
+    window.location.href="/html/login.html"
+}
+
 
 /*, contacto, cuentas compradas, facutración, reportar cosgincación, reportar fallo de cuenta*/

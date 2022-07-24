@@ -197,6 +197,10 @@ if(location.pathname==='/' || window.location.pathname.split('/').find(el=>el===
     let saludo =document.querySelector("#user");
 
     let usuarioActual = persona.getAll();
+
+    if(!persona.exists()){
+        window.location.href="/html/registro.html"
+    }
     if(usuarioActual.length>=0)
     usuarioActual=usuarioActual.find(usuario=>usuario.logged);
     console.log(usuarioActual);
@@ -219,6 +223,7 @@ if(location.pathname==='/' || window.location.pathname.split('/').find(el=>el===
 
 if(window.location.pathname.split('/').find(el=>el==='login.html')){
     let persona=new User();
+    if(persona.exists())
     if(persona.isLogged()){
         window.location.href="/index.html"
     }

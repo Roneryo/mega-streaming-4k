@@ -121,32 +121,15 @@ class Products extends miStorage{
                 Object.entries(productos).forEach(producto=>{
                     console.log(producto)
                     for(let i=0;i<3;i++){
-                        let tipo = Math.floor(Math.random() * 3)+1;
-                        // console.log(tipo)
-                        let precio=0;
-                        switch(tipo){
-                            case 1:
-                                precio=producto[1].precio;
-                                break;
-                            case 2:
-                                precio=producto[1].precio*tipo;
-                                break;
-                            case 3:
-                                precio=producto[1].precio*tipo;
-                                break;
-                            case 4:
-                                precio=producto[1].precio*tipo;
-                                break;                        
-                            }
-                            // console.log(producto[1].tipo);
+                        let precio = producto[1].precio*producto[1].tipo[i];
+                        console.log(precio);
                         this.misproductos.push({
                             nombre:producto[0],
-                            tipo:`${producto[1].tipo[tipo-1]}P`,
+                            tipo:`${producto[1].tipo[i]}P`,
                             image:`img/${producto[0]}.png`,
                             precio,
                         })
                     }
-                    
                 })
                 if(this.create(this.misproductos)){
                     this.misproductos=productos;
@@ -174,8 +157,7 @@ class Products extends miStorage{
                   <a id="${element.tipo}" class="btn btn-primary ${element.nombre}" onclick=''>${element.precio}</a>
                 </div>
               </div>
-            </div>
-            `
+            </div>`
         })
         let netflix = document.querySelectorAll(".netflix")
         netflix.forEach(element=>{

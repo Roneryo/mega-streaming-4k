@@ -3,10 +3,8 @@ var i = 1;
 var botonenviar=document.getElementById('btnagregar')
 var botoneditar=document.getElementById('btneditar')
 botoneditar.disabled=true;
-
 var infoForm={};
 function procesar() {
-
 var tipo=document.getElementById('txttipo').value
 var pantallas=document.getElementById('txtpantallas').value
 var precio=document.getElementById('txtprecio').value

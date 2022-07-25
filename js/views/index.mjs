@@ -1,5 +1,6 @@
 import { User } from "../controllers/User.js";
 import { Products } from "../controllers/Productos.js";
+
 import { header } from '../components/header.js';
 import { carrousel } from '../components/carrousel.js';
 import { footer } from '../components/footer.js';
@@ -12,8 +13,8 @@ BootstrapUtils();
 footer();
 
 
-let persona=new User();
-let saludo =document.querySelector("#user");
+let persona = new User();
+let saludo = document.querySelector("#user");
 
 let usuarioActual = persona.getAll();
 

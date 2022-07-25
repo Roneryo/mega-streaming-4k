@@ -41,8 +41,8 @@ export class Products extends miStorage {
         console.log("xd", this.misproductos);
         this.misproductos[0].forEach(element => {
             cartas.innerHTML += `
-            <div class="my-3 col-md-6 col-lg-3 col-sm-4 col-xs-6">
-              <div class="card text-center" style="width: 15rem;">
+            <div class="card my-3 col-md-6 col-lg-3 col-sm-2 col-xs-2">
+              <div class="card text-center" >
                 <img class="card-img-top" src="${element.image}" alt="Card image cap">
                 <div class="card-body">
                   <h6 class="card-title">${element.nombre.toUpperCase()} ${element.tipo}</h6>

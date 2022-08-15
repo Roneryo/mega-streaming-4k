@@ -35,23 +35,26 @@
 
               <div class="carrito row d-flex justify-content-center align-items-center my-5 "></div>
               <div>
-                <button type="button" id="btagregar" onclick="procesar()" class="btn btn-primary"> Calcular
-                  cuenta</button>
-                <button type="button" id="bteditar" onclick="actualizarfila()" class="btn btn-primary"> Editar
+                <button type="button" id="btagregar" class="btn btn-primary"> Calcular
                   cuenta</button>
               </div>
             </form>
             <div id="cuadro">
               <table class="table" id="mitabla">
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Tipo</th>
-                  <th scope="col">Pantallas</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">ValorTotal</th>
-                  <th scope="col">Opcion</th>
-                </tr>
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Pantallas</th>
+                    <th scope="col">Precio</th>
+                  </tr>
+  
+                </thead>
+                <tbody>
+
+                </tbody>
               </table>
+              <button type="button" id="exportar" class="btn btn-primary"> Exportar csv</button>
             </div>
           </div>
       </div>

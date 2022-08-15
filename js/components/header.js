@@ -23,9 +23,6 @@ export function header() {
           <a class="nav-link" href="${path}totalapagar.html">Facturar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="${path}reportconsig.html">Reportar consigación</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" id="logOut" href="${path}ogin.html">Salir</a>
         </li>
         <li class="nav-item"  >

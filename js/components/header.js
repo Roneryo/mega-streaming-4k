@@ -1,11 +1,13 @@
-export function header(){
-  let ruta = document.location.pathname.split('/').find(html=>html==="index.html");
+export function header() {
+  let ruta = document.location.pathname
+    .split("/")
+    .find((html) => html === "index.html");
   let path = "./";
-  if(ruta==="index.html"){
-    path="./html/"
+  if (ruta === "index.html") {
+    path = "./html/";
   }
 
-  let content=`
+  let content = `
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/index.html">MEGA</a>
@@ -41,7 +43,7 @@ export function header(){
   </div>
 </nav>
 `;
-let element = document.querySelector('header');
-element.innerHTML=content;
+  let element = document.querySelector("header");
+  element.innerHTML = content;
 }
 // header();

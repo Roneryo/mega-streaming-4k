@@ -1,71 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contactanos</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.css" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../img/favicon/site.webmanifest">
-</head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../img/favicon/site.webmanifest" />
+  </head>
 
-<body>
-    <header>
-    </header>
-    <section id="carrousel">
-    </section>
+  <body>
+    <header></header>
+    <section id="carrousel"></section>
     <section class="my-3 d-flex justify-content-center align-items-center">
-        <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4 p-4">
-            <div class="mb-4 d-flex justify-content-start align-items-center">
+      <div class="card shadow col-xs-12 col-sm-9 col-md-9 col-lg-9 p-4">
+        <div class="mb-4 "></div>
+        <h1 class="d-flex justify-content-center">Contactanos</h1>
+        <div class="mb-1">
+            <div class="mb-4 ">
+              <div class="col">
+                <label for="txtnombre"> Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Nombre"
+                  id="txtnombre"
+                  placeholder="ej: John"
+                  required
+                />
+                <div class="nombre text-danger"></div>
+
+                <label for="txtapellido"> Apellido</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="apellido"
+                  id="txtapellido"
+                  placeholder="ej: Doe"
+                  required
+                />
+                <div class="apellido text-danger"></div>
+
+                <label for="txtcorreo"> Correo</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="txtcorreo"
+                  placeholder="ej: john_doe@domain.com"
+                  required
+                />
+                <label for="txttelefono"> Telefono</label>
+                <input
+                  type="phone"
+                  class="form-control"
+                  name="Telefono"
+                  id="txttelefono"
+                  placeholder="ej: 300000000"
+                  required
+                />
+                <label for="txtdireccion"> Direccion</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Direccion"
+                  id="txtdireccion"
+                  placeholder="ej: CL 57 SUR #55-24 APT(5) INT(502)"
+                  required
+                />
+                <label for="txtpais"> Pais</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Pais"
+                  id="txtpais"
+                  placeholder="ej: COL"
+                  required
+                />
+                <label for="txtmensaje" > Mensaje</label>
+
+                <textarea class="form-control" id="txtmensaje" placeholder="Coloque su mensaje aca..." rows="3"></textarea>
+              </div>
             </div>
-            <h1 class="d-flex justify-content-center">Contactanos</h1>
-            <br>
-            <div class="mb-1">
-                <form id="Saca tu cuenta">
-                    <div class="mb-4 d-flex justify-content-between">
-                        <div class="col">
-                            <label for="txtnombre"> <i class=""></i>Nombre</label>
-                            <input type="text" class="form-control" name="Nombre" id="txtnombre"
-                                placeholder="ej: Zhavier" required>
-                            <div class="nombre text-danger "></div>
-                            <label for="txtcorreo"> <i class=""></i>Correo</label>
-                            <input type="email" class="form-control" name="email" id="txtcorreo"
-                                placeholder="ej: example@example.com" required>
-                            <label for="txttelefono"> <i class=""></i>Telefono</label>
-                            <input type="phone" class="form-control" name="Telefono" id="txttelefono"
-                                placeholder="ej: 300000000" required>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="button" id="btagregar" class="btn btn-primary">Enviar</button>
-                    </div>
-                    <br>
-                    <div class="d-flex justify-content-center">
-                        <table class="table" id="mitabla">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Correo</th>                                    
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </form>
+
+            <div>
+              <button type="button" id="btagregar" class="btn btn-primary">
+                Enviar
+              </button>
             </div>
+            </div>
+            <br />
+            <div class="d-flex justify-content-center">
+              <table class="table" id="mitabla">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Direccion</th>                    
+                    <th scope="col">Pais</th>
+                    <th scope="col">Mensaje</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </div>
+      </div>
     </section>
     <div id="toast"></div>
-    <footer class="bg-primary">
-    </footer>
+    <footer class="bg-primary"></footer>
     <script src="../js/jquery/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
     <script src="../js/bootstrap/bootstrap.min.js"></script>
     <script type="module" src="../js/views/formcontacto.mjs"></script>
-</body>
-
+  </body>
 </html>

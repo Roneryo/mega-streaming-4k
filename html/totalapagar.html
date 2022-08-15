@@ -29,52 +29,30 @@
       </center>
       <br>
       <div class="mb-1">
-        <form id="Saca tu cuenta">
-          <div class="mb-4 d-flex justify-content-between">
-            <div>
-              <label for="txtprenda"> <i class=""></i>Tipo de cuenta</label>
-              <input type="text" class="form-control" name="tipo de cuenta" id="txttipo" placeholder="ej: 2" required>
-              <div class="nombre text-danger "></div>
-            </div>
-          </div>
-          <br>
+
           <div class="mb-1">
             <form id="miForm">
-              <div class="mb-4 d-flex justify-content-between">
-                <div>
-                  <label for="txtprenda"> <i class=""></i>Numero de pantallas</label>
-                  <input type="text" class="form-control" name="pantallas" id="txtpantallas" placeholder="ej: 2"
-                    required>
-                  <div class="nombre text-danger "></div>
-                </div>
-              </div>
-              <div class="col">
-                <label for="txtprecio"> <i class=""></i>Precio</label>
-                <input type="text" class="form-control" name="Precio" id="txtprecio" placeholder="ej: 20000" required>
-              </div>
-              <br>
+
+              <div class="carrito row d-flex justify-content-center align-items-center my-5 "></div>
               <div>
                 <button type="button" id="btagregar" onclick="procesar()" class="btn btn-primary"> Calcular
                   cuenta</button>
                 <button type="button" id="bteditar" onclick="actualizarfila()" class="btn btn-primary"> Editar
                   cuenta</button>
               </div>
-              <br>
-              <center>
-                <div id="cuadro">
-                  <table class="table" id="mitabla">
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Tipo</th>
-                      <th scope="col">Pantallas</th>
-                      <th scope="col">Precio</th>
-                      <th scope="col">ValorTotal</th>
-                      <th scope="col">Opcion</th>
-                    </tr>
-                  </table>
-                </div>
-              </center>
             </form>
+            <div id="cuadro">
+              <table class="table" id="mitabla">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Pantallas</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">ValorTotal</th>
+                  <th scope="col">Opcion</th>
+                </tr>
+              </table>
+            </div>
           </div>
       </div>
   </section>
